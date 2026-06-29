@@ -1,87 +1,186 @@
-طب<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Sameh & Sara Wedding</title>
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 body{
-font-family:Georgia,serif;
-background:#fdfaf7;
-color:#222;
-overflow-x:hidden;
+  min-height:100vh;
+  font-family:Georgia, "Times New Roman", serif;
+  background:#fffaf3;
+  color:#171717;
+  overflow-x:hidden;
 }
 
 .hero{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-text-align:center;
-padding:20px;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:28px;
+  background:
+    radial-gradient(circle at top, rgba(182,139,82,.20), transparent 38%),
+    linear-gradient(180deg, #fffaf3 0%, #f7efe3 100%);
+  position:relative;
+}.hero-content{
+  position:relative;
+  z-index:2;
+  animation:fadeUp 1.2s ease both;
+}
+
+.bismillah{
+  font-size:24px;
+  margin-bottom:28px;
+  color:#6f4d25;
+}
+
+.rings{
+  font-size:54px;
+  margin-bottom:18px;
+  animation:float 3s ease-in-out infinite;
 }
 
 .hero h1{
-font-size:48px;
-margin-bottom:10px;
+  font-size:56px;
+  line-height:1;
+  margin-bottom:18px;
+  color:#202020;
 }
 
 .hero p{
-font-size:22px;
-letter-spacing:2px;
-margin-bottom:35px;
+  font-size:22px;
+  letter-spacing:4px;
+  margin-bottom:36px;
+  color:#5b4a39;
 }
 
-button{
-padding:15px 35px;
-font-size:18px;
-border:none;
-border-radius:40px;
-background:#b68b52;
-color:white;
-cursor:pointer;
+.open-btn{
+  border:none;
+  padding:17px 38px;
+  border-radius:999px;
+  font-size:18px;
+  color:white;
+  background:linear-gradient(135deg,#b68b52,#8b6334);
+}.invitation{
+  display:none;
+  min-height:100vh;
+  padding:26px 18px 50px;
+  background:linear-gradient(145deg,#080808,#15110c,#050505);
+  color:white;
+  text-align:center;
 }
 
-button:hover{
-background:#9b7342;
+.invitation.active{
+  display:block;
+}
+
+.card{
+  width:min(92vw,430px);
+  margin:28px auto 0;
+  background:linear-gradient(180deg,#fffaf1,#ead7b6);
+  color:#161616;
+  border-radius:28px;
+  padding:34px 22px;
+  box-shadow:0 25px 80px rgba(0,0,0,.5);
+}.card h2{
+  font-size:40px;
+  margin-bottom:12px;
+}
+
+.card p{
+  font-size:20px;
+  margin-bottom:30px;
+  line-height:1.8;
+}
+
+.info{
+  text-align:right;
+  font-size:22px;
+  line-height:2.2;
+}
+
+.info a{
+  color:#8b6b2f;
+  text-decoration:none;
+  font-weight:bold;
+}@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes float{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-10px);
+  }
 }
 
 </style>
-
-</head>
-
-<body>
+</head><body>
 
 <section class="hero">
+
+<div class="hero-content">
+
+<div class="bismillah">
+بسم الله الرحمن الرحيم
+</div>
+
+<div class="ring">💍</div>
 
 <h1>Sameh & Sara</h1>
 
 <p>Together Forever</p>
 
-<button>Open Invitation</button>
+<button class="open-btn" id="openBtn">
+Open Invitation
+</button>
 
-</section>
-<div id="invitation" style="display:none; text-align:center; padding:40px;">
-  <h2>دعوة زفاف</h2>
-  <h1>Sameh & Sara</h1>
-  <p>نتشرف بدعوتكم لحضور حفل زفافنا</p>
 </div>
 
+</section>
+<section id="invitation" class="invitation">
+
+<div class="card">
+
+<h2>دعوة زفاف</h2>
+
+<p class="invite">
+نتشرف بدعوتكم لحضور حفل زفافنا
+</p>
+
+<div class="info">
+<p>📅 السبت 29 أغسطس 2026</p>
+<p>🕗 الساعة 8:00 مساءً</p>
+<p>📍 قاعة الهضبة - دكرنس<br>بجوار بنزينة توتال</p>
+</div>
+
+</div>
+
+</section>
 <script>
-document.querySelector("button").onclick = function(){
-  document.querySelector(".hero").style.display = "none";
-  document.getElementById("invitation").style.display = "block";
-}
+document.getElementById("openBtn").onclick = function () {
+    document.querySelector(".hero").style.display = "none";
+    document.getElementById("invitation").classList.add("show");
+};
 </script>
+
 </body>
 </html>
