@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+طب<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -71,6 +71,17 @@ background:#9b7342;
 <button>Open Invitation</button>
 
 </section>
+<div id="invitation" style="display:none; text-align:center; padding:40px;">
+  <h2>دعوة زفاف</h2>
+  <h1>Sameh & Sara</h1>
+  <p>نتشرف بدعوتكم لحضور حفل زفافنا</p>
+</div>
 
+<script>
+document.querySelector("button").onclick = function(){
+  document.querySelector(".hero").style.display = "none";
+  document.getElementById("invitation").style.display = "block";
+}
+</script>
 </body>
 </html>
